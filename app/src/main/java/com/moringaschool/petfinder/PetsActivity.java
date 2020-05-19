@@ -12,9 +12,12 @@ import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import butterknife.BindView;
+import butterknife.ButterKnife;
+
 public class PetsActivity extends AppCompatActivity {
-    private TextView mLocationTextView;
-    private ListView mListView;
+    @BindView(R.id.locationTextView) TextView mLocationTextView;
+    @BindView(R.id.listView) ListView mListView;
     private String[] pets = new String[] {"London", "Storm",
             "Atlas", "Artemus", "pampurr", "Scrodinger",
             "Powder", "Zelda", "sisto", "Andy and leah",
@@ -25,8 +28,7 @@ public class PetsActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_pets);
-        mListView = (ListView) findViewById(R.id.listView);
-        mLocationTextView = (TextView) findViewById(R.id.locationTextView);
+        ButterKnife.bind(this);
         ArrayAdapter adapter = new ArrayAdapter(this, android.R.layout.simple_list_item_1, pets);
         mListView.setAdapter(adapter);
         mListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
