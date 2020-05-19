@@ -10,12 +10,15 @@
         android:layout_height="wrap_content"
         android:text="Pets near "
         android:id="@+id/locationTextView"
-
+        android:layout_marginTop="35dp"
+        android:textSize="15sp"
+        android:fontFamily="@font/ribeye_marrow"
         android:layout_centerHorizontal="true"/>
     <ListView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/listView"
+        android:fontFamily="@font/ribeye_marrow"
         android:layout_below="@+id/locationTextView"
         android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true" />
