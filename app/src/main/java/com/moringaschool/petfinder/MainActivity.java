@@ -20,7 +20,7 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View v) {
                 Intent intent = new Intent(MainActivity.this, PetsActivity.class);
                 startActivity(intent);
-                Toast.makeText(MainActivity.this, "Hello World!", Toast.LENGTH_LONG).show();
+                //Toast.makeText(MainActivity.this, "Hello World!", Toast.LENGTH_LONG).show();
             }
         });
     }
