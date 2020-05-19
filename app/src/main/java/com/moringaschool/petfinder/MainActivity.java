@@ -7,18 +7,21 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
+import butterknife.BindView;
+import butterknife.ButterKnife;
+
 public class MainActivity extends AppCompatActivity {
-    public static final String TAG = MainActivity.class.getSimpleName();
-    private EditText mLocationEditText;
-    private Button mFindPetsButton;
+    @BindView(R.id.findPetsButton) Button mFindPetsButton;
+    @BindView(R.id.locationEditText) EditText mLocationEditText;
+    @BindView(R.id.appNameTextView) TextView mAppNameTextView;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        mLocationEditText = (EditText) findViewById(R.id.locationEditText);
-        mFindPetsButton = (Button)findViewById(R.id.findPetsButton);
+        ButterKnife.bind(this);
         mFindPetsButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
