@@ -22,9 +22,10 @@ public class MainActivity extends AppCompatActivity {
         mFindPetsButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(MainActivity.this, PetsActivity.class);
-                startActivity(intent);
                 String location = mLocationEditText.getText().toString();
+                Intent intent = new Intent(MainActivity.this, PetsActivity.class);
+                intent.putExtra("location", location);
+                startActivity(intent);
                 Toast.makeText(MainActivity.this, location, Toast.LENGTH_LONG).show();
             }
         });
