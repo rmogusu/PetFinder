@@ -11,5 +11,6 @@
         android:text="Pets near "
         android:id="@+id/locationTextView"
         android:layout_centerVertical="true"
-        android:layout_centerHorizontal="true" />
+        android:layout_centerHorizontal="true"/>
+
 </RelativeLayout>
