@@ -9,6 +9,7 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 
 import static androidx.test.espresso.Espresso.onView;
+import static androidx.test.espresso.action.ViewActions.click;
 import static androidx.test.espresso.action.ViewActions.typeText;
 import static androidx.test.espresso.assertion.ViewAssertions.matches;
 import static androidx.test.espresso.matcher.ViewMatchers.withId;
@@ -24,5 +25,13 @@ public class MainActivityInstrumentedTest {
     public void validateEditText() {
         onView(withId(R.id.locationEditText)).perform(typeText("NYC"))
                 .check(matches(withText("NYC")));
+    }
+    @Test
+    public void locationIsSentToPetsActivity() {
+        String location = "Nairobi";
+        onView(withId(R.id.locationEditText)).perform(typeText(location));
+        onView(withId(R.id.findPetsButton)).perform(click());
+        onView(withId(R.id.locationTextView)).check(matches
+                (withText("Here are all the pets near: " + location)));
     }
 }
