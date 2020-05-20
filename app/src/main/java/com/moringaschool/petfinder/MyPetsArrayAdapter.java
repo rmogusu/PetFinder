@@ -14,4 +14,15 @@ public class MyPetsArrayAdapter extends ArrayAdapter {
         this.mPets  = mPets;
         this.mBreed  = mBreed;
     }
+    @Override
+    public Object getItem(int position) {
+        String pet = mPets[position];
+        String breed = mBreed[position];
+        return String.format("%s \nType of breed: %s", pet, breed);
+    }
+
+    @Override
+    public int getCount() {
+        return mPets.length;
+    }
 }

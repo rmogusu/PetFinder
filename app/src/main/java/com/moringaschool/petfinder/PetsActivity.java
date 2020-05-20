@@ -36,7 +36,7 @@ public class PetsActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_pets);
         ButterKnife.bind(this);
-        ArrayAdapter adapter = new ArrayAdapter(this, android.R.layout.simple_list_item_1, pets);
+        MyPetsArrayAdapter adapter = new MyPetsArrayAdapter(this, android.R.layout.simple_list_item_1, pets, breed) ;
         mListView.setAdapter(adapter);
         mListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
