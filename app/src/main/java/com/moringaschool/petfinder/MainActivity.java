@@ -13,7 +13,7 @@ import android.widget.Toast;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity implements View.OnClickListener{
     @BindView(R.id.findPetsButton) Button mFindPetsButton;
     @BindView(R.id.locationEditText) EditText mLocationEditText;
     @BindView(R.id.appNameTextView) TextView mAppNameTextView;
@@ -22,15 +22,17 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         ButterKnife.bind(this);
-        mFindPetsButton.setOnClickListener(new View.OnClickListener() {
+        mFindPetsButton.setOnClickListener(this);
+    }
             @Override
             public void onClick(View v) {
-                String location = mLocationEditText.getText().toString();
-                Intent intent = new Intent(MainActivity.this, PetsActivity.class);
-                intent.putExtra("location", location);
-                startActivity(intent);
-                Toast.makeText(MainActivity.this, location, Toast.LENGTH_LONG).show();
+                if (v == mFindPetsButton) {
+                    String location = mLocationEditText.getText().toString();
+                    Intent intent = new Intent(MainActivity.this, PetsActivity.class);
+                    intent.putExtra("location", location);
+                    startActivity(intent);
+                    Toast.makeText(MainActivity.this, location, Toast.LENGTH_LONG).show();
+                }
             }
-        });
     }
-}
+
